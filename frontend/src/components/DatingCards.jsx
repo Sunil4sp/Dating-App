@@ -5,12 +5,18 @@ import axios from 'axios';
 
 const DatingCards = () => {
   const [people, setPeople] = useState([])
+  
   useEffect (() =>{
-    async function fetchData(){
-      const req = await axios.get("/dating/cards")
-      setPeople(req.data);
-    }
-    fetchData()
+    const fetchData = async () => {
+      try{
+      const res = await axios.get("/dating/cards");
+      console.log(res);
+      setPeople(res.data);
+      } catch(err){
+        console.error(err);
+      }
+    };
+    fetchData();
   },[])
     const swiped = (direction, nameToDelete) => {
       console.log("receiving " + nameToDelete)
@@ -20,7 +26,7 @@ const DatingCards = () => {
     }
   return (
     <div className="datingCards">
-      <div className="datingCards__container">
+      <div className="datingCards_container">
         {people.map((person) => (
           <DatingCard
             className="swipe"

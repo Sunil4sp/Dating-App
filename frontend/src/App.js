@@ -5,7 +5,7 @@ import SwipeButtons from './components/SwipeButtons';
 
 function App() {
   return (
-    <div className="app">
+    <div>
       <Header />
       <DatingCards />
       <SwipeButtons />
