@@ -13,7 +13,7 @@ const DatingCards = () => {
       console.log(res);
       setPeople(res.data);
       } catch(err){
-        console.error(err);
+        console.log(err);
       }
     };
     fetchData();
